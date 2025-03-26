@@ -32,13 +32,19 @@ static int	get_rgb_color(char *line)
 
 int	validate_config(t_data *data)
 {
-	int	i;
+	int			i;
+	const char	*tex_name[5] = {"North", "South", "East", "West", NULL};
 
 	i = 0;
 	while (i < TEX_COUNT)
 	{
 		if (!data->tex[i])
-			return (print_err(MSG_MISSING_TEX), ERROR);
+		{
+			ft_printf_fd(2, "%sError\n", YELLOW);
+			ft_printf_fd(2, "%s texture is missing or invalid.\n%s",
+				tex_name[i], RESET);
+			return (ERROR);
+		}
 		i++;
 	}
 	if (data->map->floor_color < 0 || data->map->ceiling_color < 0)
@@ -76,13 +82,17 @@ bool	get_textures_and_colors(t_data *data, char *line)
 	if (!line)
 		return (0);
 	if (ft_strncmp(line, "NO ", 3) == 0)
-		data->tex[TEX_NORTH] = load_texture(data->s_mlx.mlx, line + offset(line));
+		data->tex[TEX_NORTH] = load_texture(data->s_mlx.mlx, line
+				+ offset(line));
 	else if (ft_strncmp(line, "SO ", 3) == 0)
-		data->tex[TEX_SOUTH] = load_texture(data->s_mlx.mlx, line + offset(line));
+		data->tex[TEX_SOUTH] = load_texture(data->s_mlx.mlx, line
+				+ offset(line));
 	else if (ft_strncmp(line, "WE ", 3) == 0)
-		data->tex[TEX_WEST] = load_texture(data->s_mlx.mlx, line + offset(line));
+		data->tex[TEX_WEST] = load_texture(data->s_mlx.mlx, line
+				+ offset(line));
 	else if (ft_strncmp(line, "EA ", 3) == 0)
-		data->tex[TEX_EAST] = load_texture(data->s_mlx.mlx, line + offset(line));
+		data->tex[TEX_EAST] = load_texture(data->s_mlx.mlx, line
+				+ offset(line));
 	else if (ft_strncmp(line, "F ", 2) == 0)
 		data->map->floor_color = get_rgb_color(line + offset(line));
 	else if (ft_strncmp(line, "C ", 2) == 0)
