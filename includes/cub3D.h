@@ -6,7 +6,7 @@
 /*   By: maxweert <maxweert@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:05:14 by llebugle          #+#    #+#             */
-/*   Updated: 2025/03/28 20:34:51 by maxweert         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:58:02 by maxweert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@
 # define CROSS_SIZE 10
 # define CROSS_COLOR 0xFFFFFFFF
 # define TEXT_COLOR 0xFFFFFFFF
+# define MINIMAP_OFFSET 20
 
 /* Colors */
 # define RED "\033[0;31m"

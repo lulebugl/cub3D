@@ -6,15 +6,12 @@
 /*   By: maxweert <maxweert@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 18:10:07 by maxweert          #+#    #+#             */
-/*   Updated: 2025/03/28 17:20:55 by maxweert         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:58:37 by maxweert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DISPLAY_H
 # define DISPLAY_H
-
-# define MINIMAP_OFFSET 20
-
 
 // INIT
 
@@ -26,7 +23,7 @@ int		init_img(t_mlx *s_mlx, t_img *s_img);
 void	set_background(t_data *data);
 int		draw_game(t_data *data);
 void	draw_transparent_pixel(t_data *data, t_coord coord, int color,
-		float alpha);
+			float alpha);
 
 // RAYCASTING
 
@@ -41,7 +38,6 @@ void	compute_tex(t_data *data, t_raycasting *ray, int x);
 
 void	draw_fps(t_data *data);
 void	set_cross(t_data *data);
-void	draw_minimap(t_data *data);
 
 // BACKGROUND
 
@@ -55,4 +51,3 @@ void	init_minimap(t_minimap *minimap);
 void	draw_line(t_data *data, t_coord start, t_coord end, int color);
 
 #endif
-

@@ -6,7 +6,7 @@
 /*   By: maxweert <maxweert@student.s19.be>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/13 19:05:30 by llebugle          #+#    #+#             */
-/*   Updated: 2025/03/28 20:40:49 by maxweert         ###   ########.fr       */
+/*   Updated: 2025/03/28 20:58:49 by maxweert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_line
 	int		err;
 	int		e2;
 	int		done;
-} t_line;
+}	t_line;
 
 typedef struct s_minimap
 {
@@ -212,4 +212,3 @@ typedef struct s_data
 }					t_data;
 
 #endif
-
