@@ -63,8 +63,12 @@ int	get_map_size(t_map *map, char **line)
 {
 	int	i;
 	int	j;
+	char *valid_chars;
 	
 	i = -1;
+	valid_chars = "01EWNS \t";
+	if (BONUS)
+		valid_chars = "01EWNSCP \t";
 	while (line[++i])
 	{
 		j = -1;
@@ -75,9 +79,9 @@ int	get_map_size(t_map *map, char **line)
 				if (map->orientation_start)
 					return (print_err(MSG_TOO_MANY_PLAYER), ERROR);
 				map->orientation_start = line[i][j];
-				map->player_start = (t_coord){j, i};
+				map->player_start = (t_coord){(double)j, (double)i};
 			}
-			if (ft_is_charset(line[i][j], VALID_CHARS) == false)
+			if (ft_is_charset(line[i][j], valid_chars) == false)
 				return (print_err(MSG_INVALID_CHAR), ERROR);
 		}
 		if (j > map->width)

@@ -56,6 +56,7 @@ run_test() {
     
     # Run with Valgrind and capture its output
     VALGRIND_OUTPUT=$(valgrind --leak-check=full --show-leak-kinds=all --errors-for-leak-kinds=all --error-exitcode=99 $PARSER_PROGRAM "$map_file" 2>&1)
+    
     local actual_exit_code=$?
     
     # Check for memory leaks in Valgrind output

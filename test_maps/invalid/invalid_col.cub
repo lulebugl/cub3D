@@ -4,7 +4,7 @@ NO ./assets/north_wall.xpm
 WE ./assets/west_wall.xpm
 
 F 153,   100 
-,0
+C ,0
 C 71,171,169
 
         1111111111111111111111111

@@ -45,6 +45,8 @@ int	parse_file(t_data *data, char **line)
 	data->tex[TEX_FLOOR] = load_texture(data->s_mlx.mlx, "./assets/floor.xpm");
 	data->tex[TEX_CEILING] = load_texture(data->s_mlx.mlx,
 			"./assets/ceiling.xpm");
+	if (validate_config(data) == ERROR)
+		return (ERROR);
 	if (get_map_size(data->map, line + i) == ERROR)
 		return (ERROR);
 	if (create_matrix(data->map, line + i) == ERROR)

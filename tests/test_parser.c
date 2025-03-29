@@ -25,6 +25,7 @@ int	main(int ac, char **av)
 	init_mlx(&data.s_mlx);
 	if (parse_arguments(&data, ac, av))
 		exit_with_error(NULL, &data);
+	print_data(&data);
 	clean_up(&data);
 	return (0);
 }
