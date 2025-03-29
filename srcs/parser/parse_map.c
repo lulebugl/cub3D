@@ -29,6 +29,8 @@ static int	fill_matrix(t_map *map, int **matrix, char **line)
 			(*matrix)[j] = 0;
 		else if ((*line)[j] == PORTAL)
 			(*matrix)[j] = 2;
+		else if ((*line)[j] == CONTROLLER)
+			(*matrix)[j] = 3;
 		else
 			(*matrix)[j] = (*line)[j] - 48;
 		j++;
@@ -61,7 +63,7 @@ int	get_map_size(t_map *map, char **line)
 {
 	int	i;
 	int	j;
-
+	
 	i = -1;
 	while (line[++i])
 	{
@@ -75,7 +77,7 @@ int	get_map_size(t_map *map, char **line)
 				map->orientation_start = line[i][j];
 				map->player_start = (t_coord){j, i};
 			}
-			if (ft_is_charset(line[i][j], "01EWNSP \t") == false)
+			if (ft_is_charset(line[i][j], VALID_CHARS) == false)
 				return (print_err(MSG_INVALID_CHAR), ERROR);
 		}
 		if (j > map->width)

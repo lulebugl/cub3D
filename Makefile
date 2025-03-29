@@ -27,17 +27,17 @@ CFLAGS	= -Wextra -Wall -g
 VALGRIND =
 MLX_LIB = -L $(MLX_DIR) -lmlx
 MLX_FLAGS = -L./minilibx-linux/ -lmlx_Linux -lXext -lX11 -lm -lz
-ifeq ($(shell uname), Linux)
+# ifeq ($(shell uname), Linux)
 	MLX_DIR = ./minilibx-linux
 	MLX_PATH = minilibx-linux/libmlx.a
 	MLX =  -L /usr/lib -lXext -lX11 -lm -lz
 	MLX_OBJ = -I/usr/include -Imlx_linux -O3
-else
-	MLX_DIR = ./mlx
-	MLX_PATH = mlx/libmlx.a
-	MLX = -lmlx -Lmlx -framework OpenGl -framework AppKit
-	MLX_OBJ = -Imlx -c
-endif
+# else
+# 	MLX_DIR = ./mlx
+# 	MLX_PATH = mlx/libmlx.a
+# 	MLX = -lmlx -Lmlx -framework OpenGl -framework AppKit
+# 	MLX_OBJ = -Imlx -c
+# endif
 
 ifeq ($(MODE), debug)
 	CFLAGS	+= -fsanitize=address -g -D DEBUG=true

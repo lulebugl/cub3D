@@ -36,6 +36,7 @@
 
 # ifndef BONUS
 #  define BONUS 1
+#  define VALID_CHARS "01EWNSPC \t"
 # endif
 
 /* Constants */
@@ -53,6 +54,9 @@
 # define CROSS_COLOR 0xFFFFFFFF
 # define TEXT_COLOR 0xFFFFFFFF
 
+#ifndef VALID_CHARS
+# define VALID_CHARS "01EWNS \t"
+#endif
 /* Colors */
 # define RED "\033[0;31m"
 # define GREEN "\033[0;32m"

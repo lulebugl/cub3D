@@ -14,6 +14,7 @@
 # define STRUCTURES_H
 
 # include "libft.h"
+# include <pthread.h>
 
 # define NB_FRAMES 24
 
@@ -21,6 +22,7 @@ typedef enum e_map_element
 {
 	EMPTY = '0',
 	PORTAL = 'P',
+	CONTROLLER = 'C',
 	OBSTACLE = '1',
 	EAST = 'E',
 	WEST = 'W',
