@@ -61,7 +61,7 @@
 # define LOOSE 2
 # define FRAME_MARGIN 50
 # define MAP_CELL_SIZE 14
-# define MAX_FPS 120
+# define MAX_FPS 60
 
 /* Colors */
 # define RED "\033[0;31m"

@@ -42,6 +42,11 @@ void	render_time_left(t_data *data, t_coord pos)
 
 int	render_game(t_data *data)
 {
+	struct timeval	start_time;
+	struct timeval	end_time;
+	long			wait_us;
+
+	gettimeofday(&start_time, NULL);
 	if (data->started && data->time_left <= 0)
 		data->game_end = LOOSE;
 	if (BONUS)
@@ -49,7 +54,6 @@ int	render_game(t_data *data)
 	else
 		set_background(data);
 	raycasting(data);
-	count_fps(data);
 	render_hud(data);
 	mlx_put_image_to_window(data->s_mlx.mlx, data->s_mlx.win, data->s_img.img,
 		0, 0);
@@ -57,5 +61,15 @@ int	render_game(t_data *data)
 	render_time_left(data, (t_coord){WIDTH - data->tex[TEX_SMALL_FRAME]->width
 		- 28, ((double)(data->tex[TEX_SMALL_FRAME]->height) / 2) + 50 + 2});
 	draw_interact(data);
+	gettimeofday(&end_time, NULL);
+	wait_us = 1000000 / MAX_FPS - (long)(((end_time.tv_sec - start_time.tv_sec) * 1000000)
+	+ (end_time.tv_usec - start_time.tv_usec));
+	if (wait_us > 15000)
+		wait_us = 15000;
+	if (wait_us > 0)
+		usleep(wait_us);
+	gettimeofday(&end_time, NULL);
+	data->s_fps.fps = 1000000.0 / (long)(((end_time.tv_sec - start_time.tv_sec)
+			* 1000000) + (end_time.tv_usec - start_time.tv_usec));
 	return (1);
 }
